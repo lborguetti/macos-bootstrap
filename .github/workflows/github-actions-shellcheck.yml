@@ -1,0 +1,16 @@
+name: shellcheck
+run-name: shellcheck
+on: [push]
+jobs:
+  shellcheck:
+    runs-on: ubuntu-latest
+    steps:
+      - name: echo "Install shellcheck (https://www.shellcheck.net)"
+        run: | 
+          sudo apt-get -y update && sudo apt-get -y install shellcheck
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - name: Run shellcheck
+        run: |
+          shellcheck ${{ github.workspace }}/bootstrap.sh
+      - run: echo "This job's status is ${{ job.status }}."
