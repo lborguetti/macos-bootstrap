@@ -1,0 +1,5 @@
+neovim
+shellcheck
+spotify
+tmux
+tree
