@@ -51,6 +51,7 @@ while IFS="" read -r dotfile; do
         echo -n "Ensuring the copy of the ${dotfile} dotfile: "
         if ! do_dotfile_install "${dotfile}"; then
             echo "fail"
+            exit 1
         else
             echo "ok"
         fi
