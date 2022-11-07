@@ -3,3 +3,4 @@ shellcheck
 spotify
 tmux
 tree
+mosh
