@@ -1,6 +1,7 @@
+gnupg
+mosh
 neovim
 shellcheck
 spotify
 tmux
 tree
-mosh
