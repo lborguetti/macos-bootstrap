@@ -44,29 +44,29 @@ function do_dotfile_install(){
 
 function do_dotfiles(){
 
-dotfile=""
+    dotfile=""
 
-while IFS="" read -r dotfile; do
-    if ! file_exists "${dotfile}"; then
-        echo -n "Ensuring the copy of the ${dotfile} dotfile: "
-        if ! do_dotfile_install "${dotfile}"; then
-            echo "fail"
-            exit 1
-        else
-            echo "ok"
-        fi
-    else
-        if ! file_changes "${dotfile}"; then
-            echo -n "The file was changed, ensuring the copy of the ${dotfile} dotfile: "
+    while IFS="" read -r dotfile; do
+        if ! file_exists "${dotfile}"; then
+            echo -n "Ensuring the copy of the ${dotfile} dotfile: "
             if ! do_dotfile_install "${dotfile}"; then
                 echo "fail"
                 exit 1
             else
                 echo "ok"
             fi
+        else
+            if ! file_changes "${dotfile}"; then
+                echo -n "The file was changed, ensuring the copy of the ${dotfile} dotfile: "
+                if ! do_dotfile_install "${dotfile}"; then
+                    echo "fail"
+                    exit 1
+                else
+                    echo "ok"
+                fi
+            fi
         fi
-    fi
-done <<< "$(cd dotfiles && find . -type f)"
+    done <<< "$(cd dotfiles && find . -type f)"
 
 }
 
@@ -84,19 +84,19 @@ function do_package_install(){
 
 function do_packages(){
 
-package=""
+    package=""
 
-while IFS="" read -r package; do
-    if ! package_exists "${package}"; then
-        echo -n "Ensuring the installation of the ${package} package: "
-        if ! do_package_install "${package}"; then
-            echo "fail"
-            exit 1
-        else
-            echo "ok"
+    while IFS="" read -u 666 -r package; do
+        if ! package_exists "${package}"; then
+            echo -n "Ensuring the installation of the ${package} package: "
+            if ! do_package_install "${package}"; then
+                echo "fail"
+                exit 1
+            else
+                echo "ok"
+            fi
         fi
-    fi
-done < ./packages.txt
+    done 666< ./packages.txt
 
 }
 
