@@ -1,5 +1,7 @@
 # macos-workstation-bootstrap
 
+![shellcheck](https://github.com/lborguetti/macos-workstation-bootstrap/actions/workflows/github-actions-shellcheck.yml/badge.svg)
+
 Keeping in mind the KISS principle this few lines of code can be used
 to create/setup an entire workspace without complexity. 
 
