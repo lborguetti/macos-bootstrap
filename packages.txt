@@ -8,6 +8,7 @@ obsidian
 pinentry-mac
 shellcheck
 spotify
+tig
 tmux
 tree
 wget
