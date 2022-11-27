@@ -46,7 +46,7 @@ function do_dotfiles(){
 
     dotfile=""
 
-    while IFS="" read -r dotfile; do
+    while IFS="" read -u 9 -r dotfile; do
         if ! file_exists "${dotfile}"; then
             echo -n "Ensuring the copy of the ${dotfile} dotfile: "
             if ! do_dotfile_install "${dotfile}"; then
@@ -66,7 +66,7 @@ function do_dotfiles(){
                 fi
             fi
         fi
-    done <<< "$(cd dotfiles && find . -type f)"
+    done 9<<< "$(cd dotfiles && find . -type f)"
 
 }
 
