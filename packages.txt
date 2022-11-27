@@ -1,7 +1,15 @@
 gnupg
+hopenpgp-tools
+iterm2
+keepassxc
 mosh
 neovim
+obsidian
+pinentry-mac
 shellcheck
 spotify
 tmux
 tree
+wget
+ykman
+yubikey-personalization
