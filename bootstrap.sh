@@ -107,7 +107,7 @@ function do_neovim(){
 }
 
 do_dotfiles
-#do_packages
+do_packages
 if [ "${update_neovim:-}" == "true" ]; then
     do_neovim
 fi
