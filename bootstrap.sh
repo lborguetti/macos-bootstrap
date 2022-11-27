@@ -86,7 +86,7 @@ function do_packages(){
 
     package=""
 
-    while IFS="" read -u 666 -r package; do
+    while IFS="" read -u 9 -r package; do
         if ! package_exists "${package}"; then
             echo -n "Ensuring the installation of the ${package} package: "
             if ! do_package_install "${package}"; then
@@ -96,7 +96,7 @@ function do_packages(){
                 echo "ok"
             fi
         fi
-    done 666< ./packages.txt
+    done 9< ./packages.txt
 
 }
 
