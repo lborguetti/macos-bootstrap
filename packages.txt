@@ -1,6 +1,8 @@
+dos2unix
 gnupg
 hopenpgp-tools
 iterm2
+jq
 keepassxc
 mosh
 neovim
